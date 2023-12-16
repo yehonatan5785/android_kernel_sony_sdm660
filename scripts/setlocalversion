@@ -109,7 +109,7 @@ scm_version()
 			git --no-optional-locks status -uno --porcelain 2>/dev/null ||
 			git diff-index --name-only HEAD
 		} | grep -qvE '^(.. )?scripts/package'; then
-			printf '%s' -dirty
+			printf '%s' 
 		fi
 
 		# All done with git
@@ -170,7 +170,6 @@ collect_files()
 if $scm_only; then
 	if test ! -e .scmversion; then
 		res=$(scm_version)
-		echo "$res" >.scmversion
 	fi
 	exit
 fi
@@ -202,7 +201,7 @@ else
 	# LOCALVERSION= is not specified
 	if test "${LOCALVERSION+set}" != "set"; then
 		scm=$(scm_version --short)
-		res="$res${scm:++}"
+		res="$res"
 	fi
 fi
 
