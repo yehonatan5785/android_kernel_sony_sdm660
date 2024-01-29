@@ -51,6 +51,8 @@
 #include <linux/export.h>
 #include <trace/events/power.h>
 
+static struct pm_qos_constraints cpu_latency_constraints;
+
 /*
  * locking rule: all changes to constraints or notifiers lists
  * or pm_qos_object list and pm_qos_objects need to happen with pm_qos_lock
