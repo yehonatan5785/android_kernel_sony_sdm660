@@ -490,6 +490,12 @@ static inline bool audit_loginuid_set(struct task_struct *tsk)
 	return uid_valid(audit_get_loginuid(tsk));
 }
 
+static inline int audit_update_lsm_rules(void)
+{
+	return 0;
+}
+
+
 #ifdef CONFIG_AUDIT
 /* These are defined in audit.c */
 				/* Public API */
